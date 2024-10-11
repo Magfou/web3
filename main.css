@@ -1,0 +1,965 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3 {
+    color: #fff;
+}
+
+/* Шапка сайта */
+header {
+    background-color: #1c1c1c;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 100px; /* Ширина логотипа, можно настроить по вашему желанию */
+    height: 100px; /* Высота логотипа */
+    border-radius: 50%; /* Округление логотипа на 50%, делая его круглым */
+    object-fit: cover; /* Гарантирует, что изображение заполнит круг */
+    margin-left: 40px; /* Сместить логотип влево на 20px */
+    display: block; /* Убирает нежелательные отступы */
+    
+}
+
+html {
+    scroll-behavior: smooth; /* Плавная прокрутка */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #1e1e1e; /* Фон для навигации */
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff; /* Цвет текста */
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #e50914; /* Красный при наведении, под цвет сайта */
+}
+
+
+.user-options a {
+    color: #f5f5f5;
+    margin-left: 20px;
+    font-size: 16px;
+    position: relative;
+    padding-right: 32px;
+}
+
+.cart {
+    padding: 10px 10px;
+    background-color: #ff0000; /* Красный цвет */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-right: 150px;
+    
+}
+
+.cart:hover {
+    background-color: #cc0000; /* Более темный цвет при наведении */
+}
+
+
+.hero {
+    background-color: #222222; /* Светло-серый фон */
+    color: #333;
+    text-align: center;
+    padding: 100px 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+    overflow: hidden; /* Скрываем выход анимации за пределы блока */
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ffffff;
+    animation: bounceIn 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards; /* Анимация с эффектом упругости */
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #ffffff;
+    font-family: 'Press Start 2P', cursive; /* Интересный шрифт для текста */
+}
+
+.hero-content .btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #edb51d;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 30px;
+    transition: background 0.3s ease;
+    margin-right: 25px;
+}
+
+.hero-content .btn:hover {
+    background-color: #edb229;
+    transform: scale(1.05);
+}
+
+/* Анимация заголовка с эффектом упругого падения */
+@keyframes bounceIn {
+    0% {
+        transform: translateY(-200%);
+        opacity: 0;
+    }
+    60% {
+        transform: translateY(30%);
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(-10%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* Категории */
+.categories {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.categories h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 10px;
+}
+
+.category-card {
+    background-color: #1c1c1c;
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.category-card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.category-card h3 {
+    color: #e50914;
+    font-size: 1.5rem;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+    background-color: #333;
+}
+
+/* Карточки продуктов */
+.products {
+    padding: 50px 0;
+    display: flex;
+    flex-wrap: wrap; /* Позволяем карточкам переноситься на новую строку */
+    gap: 20px; /* Отступы между карточками */
+    justify-content: space-between; /* Распределение карточек по горизонтали */
+}
+
+.products h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет перенос элементов на новую строку */
+    gap: 20px; /* Отступ между карточками */
+    justify-content: space-between; /* Равномерное распределение карточек по строке */
+}
+
+.product-card {
+    flex: 1 1 calc(25% - 20px); /* Каждая карточка занимает 25% ширины контейнера, за вычетом отступа */
+    max-width: calc(25% - 20px); /* Ограничиваем максимальную ширину */
+    box-sizing: border-box; /* Учитываем отступы в расчет ширины карточки */
+    margin-bottom: 20px; /* Отступ снизу для каждой карточки */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    width: 100%; /* Карточка займет всю ширину колонки */
+    border-radius: 18px;
+
+}
+
+.product-card:nth-child(4n+1) {
+    clear: left; /* Очищает левый край для каждого первого элемента в новом ряду */
+
+}
+.product-card img {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.product-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    color: #e50914;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    background-color: #333;
+}
+/* Стили для уменьшенной игровой кнопки "В корзину" */
+.game-btn {
+    background: linear-gradient(45deg, #ff1f1f, #ff7b1f); /* Градиент с красно-оранжевым оттенком */
+    border: none;
+    color: white;
+    font-size: 16px; /* Сделаем шрифт немного меньше */
+    padding: 12px 25px; /* Уменьшаем ширину и увеличиваем высоту */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    border-radius: 8px; /* Немного уменьшим радиус закругления */
+    box-shadow: 0 5px #b31414;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: 'Orbitron', sans-serif; /* Игровой шрифт */
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    margin-left: 5px;
+    margin-bottom: 7px;
+}
+
+.game-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: transform 0.5s;
+    z-index: 0;
+}
+
+.game-btn:hover::before {
+    transform: translateX(150%) translateY(150%);
+}
+
+.game-btn:hover {
+    box-shadow: 0 7px #8e0d0d;
+    transform: translateY(-3px);
+}
+
+.game-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 3px #b31414;
+}
+
+/* Акции */
+.offers {
+    background-color: #121212;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.offers h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.offer-card {
+    background-color: #1c1c1c;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s ease;
+}
+
+.offer-card img {
+    width: 50%;
+    border-radius: 8px;
+}
+
+.offer-details {
+    padding: 20px;
+    text-align: left;
+}
+
+.offer-details h3 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.offer-details .btn {
+    margin-top: 20px;
+    background-color: #f0d20de8;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.offer-card:hover {
+    background-color: #333;
+}
+
+/* Отзывы */
+.reviews {
+    background-color: #1c1c1c;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.reviews h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.review-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+}
+
+.review-card {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 0 0 300px;
+    min-height: 150px;
+}
+
+/* Футер */
+footer {
+    background-color: #1c1c1c;
+    padding: 40px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #f5f5f5;
+}
+
+.footer-socials a {
+    margin-right: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    color: #f5f5f5;
+}
+.glavnaya {
+padding-right: 500px;
+font-size: 20px;
+margin-left: 300px;
+
+
+}
+/* Контейнер для кнопок в правом верхнем углу */
+.header-buttons {
+    display: flex;
+    justify-content: flex-end; /* Выровнять элементы по горизонтали вправо */
+    align-items: flex-start; /* Выровнять элементы по вертикали к верхнему краю */
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%; /* Убедиться, что контейнер растянут по всей ширине */
+    
+   
+}
+/* Кнопка Войти */
+.btn {
+    padding: 10px 20px;
+    background-color: rgba(220, 156, 19, 0.95);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-right: 850px;
+   margin-top: 29px;
+   margin-bottom: 24px;
+    
+}
+
+.btn:hover {
+    background-color: rgb(222, 189, 41);
+    transform: scale(1.05);
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    width: 300px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-content {
+    position: relative;
+}
+
+/* Кнопка закрытия (крестик) */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #ff0000;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #020202;
+}
+
+/* Стиль заголовка, чтобы не сливался с фоном */
+.modal-title {
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Затемнение экрана */
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+#overlay.active, .modal.active {
+    display: block;
+}
+
+/* Поля формы и кнопки */
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.password-container {
+    position: relative;
+}
+
+#togglePassword {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #cc0000;
+}
+
+/* Кнопка корзины */
+.cart-btn {
+    background-color: rgba(220, 156, 19, 0.95);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    position:sticky;
+    cursor: pointer;
+    margin-bottom: 24px;
+    right: 1000px;
+    z-index: 100;
+    transition: transform 0.3s ease;
+    margin-top: 20px;
+}
+
+.cart-btn:hover {
+    transform: scale(1.1);
+    background-color: rgb(222, 189, 41);
+}
+
+.cart-overlay.active {
+    right: 0;
+}
+
+
+
+
+/* Оверлей корзины */
+.cart-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 100%;
+    background-color: rgba(245, 245, 245, 0.97); /* Светло-серый цвет */
+    z-index: 999;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%); /* Для плавного выезда */
+    transition: transform 0.3s ease; /* Анимация */
+}
+
+.cart-overlay.active {
+    display: block;
+    transform: translateX(0); /* Плавное появление */
+}
+
+.cart-window {
+    padding: 20px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.cart-window h2 {
+    font-size: 24px;
+    color: #222;
+    margin-bottom: 20px;
+    
+}
+
+/* Кнопка закрытия корзины */
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #000000;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+/* Контейнер товаров */
+.cart-content {
+    flex-grow: 1;
+    max-height: 70%;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.cart-content p.empty-message {
+    color: #888;
+    font-size: 16px;
+}
+
+/* Стили для кнопки "Оплатить" */
+.checkout-btn {
+    background-color: #ffc107; /* Желтый цвет */
+    color: #333;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #e0a800;
+}
+
+/* Оверлей для формы оплаты */
+.payment-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+    backdrop-filter: blur(5px);
+}
+
+/* Стили для формы оплаты */
+.payment-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    width: 300px;
+    color: #333;
+}
+
+.payment-form h2 {
+    font-size: 22px;
+    color: #0d0d0d;
+    margin-bottom: 20px;
+}
+
+/* Поля ввода в форме */
+.payment-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.payment-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #dedada;
+    font-size: 16px;
+}
+
+.payment-form input::placeholder {
+    color: #aaa;
+}
+
+/* Кнопка для отправки формы */
+.submit-btn {
+    background-color: #dcc335;
+    color: rgb(12, 12, 12);
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #e0a800;
+}
+
+/* Общий стиль для крестиков закрытия */
+.payment-form .close-btn,
+.cart-window .close-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #0c0c0c;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Стили для корзины */
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.cart-item-img {
+    width: 140px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.cart-item-info {
+    flex-grow: 1;
+}
+
+.cart-item-info h4 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.cart-item-info p {
+    margin: 5px 0 0;
+    font-size: 12px;
+    color: #555;
+}
+
+/* Перемещаем кнопку удаления (X) в правый верхний угол карточки товара */
+.cart-item {
+    position: relative;
+    padding-right: 40px; /* Добавляем пространство для крестика */
+}
+
+.cart-item .remove-item {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    color: #000000;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    
+}
+
+.empty-message {
+    text-align: center;
+    color: #999;
+}
+
+/* стии для надписи "рекомендованные игры" */
+
+.uli {
+    font-size: 2rem;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
+    background-size: 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 5s ease-in-out infinite;
+    text-align: center;
+    font-weight: bold;
+    justify-content: center;
+    margin-left: 390px;
+    
+
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0%;
+    }
+    50% {
+      background-position: 100%;
+    }
+    100% {
+      background-position: 0%;
+    }
+  }
+  
+/* Стили для счетчика количества товаров */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    
+   
+}
+
+.quantity-controls button {
+    background-color: #ebda22;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 5px 10px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 5px;
+   
+}
+
+.quantity-controls button:hover {
+    background-color: #daad1a;
+}
+
+.quantity {
+    font-size: 16px;
+    padding: 0 10px;
+    
+}
+
+/* Кнопка удаления товара (X) */
+.cart-item .remove-item {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    color: #000000;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    margin-right: 70px;
+    
+}
+
+#cartSummary {
+    margin-top: 20px; 
+    padding: 10px; 
+    background-color: #f8f9fa; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для эффекта глубины */
+    display: flex; /* Flexbox для выравнивания */
+    justify-content: space-between; /* Пространство между элементами */
+    align-items: center; /* Выравнивание по вертикали */
+    margin: 50px;
+}
+
+#totalPrice {
+    font-size: 20px; 
+    font-weight: bold; 
+    color: #7f807f; 
+}
+
+/* Стили для итоговой суммы в модальном окне */
+#modalTotalPrice {
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для выбора способа оплаты */
+.payment-method {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #f7f7f7;
+    color: #333;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Логотипы банков */
+.payment-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.payment-logos img {
+    width: 40px;
+    height: auto;
+    margin: 0 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-logos img.hidden {
+    display: none;
+}
+
+/* Стили для заголовка выбора оплаты */
+label[for="paymentMethod"] {
+    font-size: 18px;
+    color: #0d0d0d;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    text-align: center;
+}
+
+
+

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Store Web3</title>
+    <link rel="stylesheet" href="main.css">
+    
+</head>
+<body>
+    <header>
+        
+        <div class="logo">
+            <a href="#"><img src="pic\logo.png" alt="Логотип магазина игр"></a> 
+        </div>
+       <div class="glavnaya">
+        <nav >
+            <ul>
+                <li><a href="#hero">Главная</a></li>
+                <li><a href="#categories">Игры</a></li>
+                <li><a href="console">Консоли </a></li>
+                <li><a href="#offers">Аксессуары</a></li>
+                <li><a href="#reviews">Скидки</a></li>
+                <li><a href="#footer">Контакты</a></li>
+            </ul>
+        </nav>
+    </div> 
+    
+    <!-- Корзина -->
+<button id="cartButton" class="cart-btn">Корзина</button>
+<div class="container">
+    <!-- Оверлей корзины -->
+    <div id="cartOverlay" class="cart-overlay">
+        <div class="cart-window">
+            <button class="close-btn">&times;</button>
+            <h2>Ваша корзина</h2>
+            <div id="cartContent" class="cart-content">
+                <ul id="cartItems"></ul>
+                <p class="empty-message">Ваша корзина пуста</p>
+                <div id="cartSummary">
+                    <p id="totalPrice">Итого: 0 ₽</p>
+                </div>
+            </div>
+            <button id="checkoutBtn" class="checkout-btn">Оплатить</button>
+        </div>
+    </div>
+
+    <!-- Окно формы оплаты -->
+<div id="paymentForm" class="payment-form">
+    <button class="close-btn">&times;</button>
+    <h2 class="visa">
+        Оплата
+    </h2>
+
+    <!-- Выбор способа оплаты -->
+    <label for="paymentMethod">Выберите способ оплаты:</label>
+    <select id="paymentMethod" class="payment-method">
+        <option value="sberbank">Сбербанк</option>
+        <option value="tinkoff">Тинькофф</option>
+        <option value="Alfa">Альфа</option>
+        <option value="Ozon">Озон</option>
+    </select>
+    <div class="payment-logos">
+        <img src="pic\svg\sber.jpg" alt="Сбербанк" id="sberbank-logo" class="hidden">
+        <img src="pic\svg\tinkof.jpg" alt="Тинькофф" id="tinkoff-logo" class="hidden">
+        <img src="pic\svg\alfa.jpg" alt="Альфа" id="Alfa" class="hidden">
+        <img src="" alt="Озон" id="Ozon-logo" class="hidden">
+    </div>
+
+    <form>
+        <label for="cardNumber">Номер карты:</label>
+        <input type="text" id="cardNumber" placeholder="Введите номер карты" required />
+
+        <label for="expiryDate">Срок действия:</label>
+        <input type="text" id="expiryDate" placeholder="ММ/ГГ" required />
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" placeholder="Введите CVV" required />
+
+        <!-- Итоговая сумма -->
+        <p id="modalTotalPrice">Итого: 0 ₽</p>
+
+        <button type="submit" class="submit-btn">Подтвердить платеж</button>
+    </form>
+</div>
+
+
+    <!-- Оверлей для формы оплаты -->
+    <div id="paymentOverlay" class="payment-overlay"></div>
+</div>
+
+    </header>
+    <div class="header-buttons">
+        <button id="loginBtn" class="btn">Войти</button>
+    </div>
+<!-- Модальное окно для формы входа -->
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+        <span class="close-btn" id="closeLoginModal">&times;</span>
+        <h2 class="modal-title">Вход через Google</h2>
+        <form id="loginForm">
+            <label for="email">Почта:</label>
+            <input type="email" id="email" placeholder="Введите почту" required>
+
+            <label for="password">Пароль:</label>
+            <div class="password-container">
+                <input type="password" id="password" placeholder="Введите пароль" required>
+                <button type="button" id="togglePassword">Показать</button>
+            </div>
+            <button type="submit"  class="submit-btn">Войти</button>
+        </form>
+    </div>
+</div>
+<!-- Затемняющий фон -->
+<div id="overlay"></div>
+    <!-- Главный баннер -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Открой для себя новые впечатленя </h1>
+            <p>Мы предлагаем широкий ассортимент игр, консолей и аксессуаров для настоящих геймеров. В нашем магазине вы найдете всё, что нужно для полного погружения в мир виртуальных приключений — от новейших игровых консолей до культовых аксессуаров и эксклюзивных игр.</p>
+            <a href="#products" class="btn">Магазин</a>
+        </div>
+    </section>
+    <!-- Категории товаров -->
+    <section class="categories" id="categories">
+        <h2>Покупай по категориям</h2>
+        <div class="category-grid">
+            <div class="category-card">
+              
+                <h3>Игры</h3>
+            </div>
+            <div class="category-card">
+               
+                <h3 href="console.html">Консоли</h3>
+            </div>
+            <div class="category-card">
+               
+                <h3>Аксессуары</h3>
+            </div>
+            <div class="category-card">
+                
+                <h3>Скидки</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Рекомендуемые товары -->
+    <section class="products" id="products">
+        
+    <div class="uli">
+        <h2>Рекомендованные игры</h2>
+    </div>
+    
+        <div class="product-grid">
+
+            <div class="product-card">
+                <img src="pic\headersss.jpg" alt="Название игры">
+                <h3>Red Dead Redemption 2</h3>
+                <p>3 999 ₽</p>
+                <button class="game-btn">В корзину</button>
+
+            </div>
+
+            <div class="product-card">
+                <img src="pic\header.jpg" alt="Название игры">
+                <h3>The Last of Us Part I </h3>
+                <p>2499 ₽</p>
+                <button class="game-btn">В корзину</button>
+            </div>
+
+            <div class="product-card">
+                <img src="pic\headerу_russian.jpg" alt="Название игры">
+                <h3>Ведьмак 3: Дикая Охота </h3>
+                <p>2699 ₽</p>
+                <button class="game-btn">В корзину</button>
+            </div>
+
+            <div class="product-card">
+                <img src="pic\ing.jpg" alt="Название игры">
+                <h3>Metro Exodus </h3>
+                <p>2200 ₽</p>
+                <button class="game-btn">В корзину</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="pic\head.jpg" alt="Название игры">
+                <h3>Dying Light 2 Stay Human </h3>
+                <p>2799 ₽</p>
+                <button class="game-btn">В корзину</button>
+            </div>
+
+            <div class="product-card">
+                <img src="pic\headerhghgh.jpg" alt="Название игры">
+                <h3>DayZ </h3>
+                <p>3500₽</p>
+                <button class="game-btn">В корзину</button>
+            </div>
+
+            <div class="product-card">
+                <img src="pic\ol.jpg" alt="Название игры">
+                <h3>Rust </h3>
+                <p>3199 ₽</p>
+                <button class="game-btn">В корзину</button>
+            </div>
+
+            <div class="product-card">
+                <img src="pic\headerll.jpg" alt="Название игры">
+                <h3>Far Cry 6 </h3>
+                <p>1799 ₽</p>
+                <button class="game-btn">В корзину</button>
+            </div>
+            <div class="product-card">
+                <img src="pic\headerggg.jpg" alt="Название игры">
+                <h3>Resident Evil 4</h3>
+                <p>1999 ₽</p>
+                <button class="game-btn">В корзину</button>
+            </div>
+            <div class="product-card">
+                <img src="pic\gta.jpg" alt="Название игры">
+                <h3>Grand Theft Auto V</h3>
+                <p>1500 ₽</p>
+                <button class="game-btn">В корзину</button>
+            </div>
+
+            <div class="product-card">
+                <img src="pic\Scarim.jpg" alt="Название игры">
+                <h3>The Elder Scrolls Skyrim</h3>
+                <p>1500 ₽</p>
+                <button class="game-btn">В корзину</button>
+            </div>
+
+
+            <div class="product-card">
+                <img src="pic\tot.jpg" alt="Название игры">
+                <h3>Sons Of The Forest</h3>
+                <p>1500 ₽</p>
+                <button class="game-btn">В корзину</button>
+            </div>
+
+
+
+        </div>
+    </section>
+    <section class="offers" id="offers">
+        <h2>Специальные предложения</h2>
+        <div class="offer-card">
+            <img src="pic/442327_O.jpg" alt="Баннер предложения">
+            <div class="offer-details">
+                <h3>Скидки до 50% на игры по предзаказу!</h3>
+                
+                <a href="#" class="btn">Смотреть</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы клиентов -->
+    <section class="reviews" id="reviews">
+        <h2>Отзывы наших клиентов</h2>
+        <div class="review-slider">
+            <div class="review-card">
+                <p>«Отличный выбор игр и быстрая доставка. Постоянно заказываю тут!»</p>
+                <span>- Алеша</span>
+            </div>
+            <div class="review-card">
+                <p>«Замечательные скидки и лучшие игровые аксессуары.»</p>
+                <span>- Мария</span>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Футер -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <h3>Быстрые ссылки</h3>
+                <ul>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Возвраты и доставка</a></li>
+                    <li><a href="#">Политика конфидициальности</a></li>
+                </ul>
+            </div>
+            <div class="footer-socials">
+                <h3>Мои социальные сети </h3>
+                <a href="https://t.me/Milton_dk"><img src="pic\svg\tg.png" alt="Telegram"></a>
+                <a href="#"><img src="pic\svg\tw.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/van1ka___/"><img src="pic\svg\inst.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Магазин игр. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Добавление JavaScript -->
+    <script src="main.js">
+        
+    </script>
+</body>
+</html>
